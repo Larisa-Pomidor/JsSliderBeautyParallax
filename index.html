@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty Parallax Slider</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@1,300&family=Fasthand&family=Montserrat:wght@300&display=swap"
+        rel="stylesheet">
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .slider__outer {
+            background-size: cover;
+            background-position-x: center;
+            margin-bottom: 1000px;
+        }
+
+        .slider__inner {
+            padding: 250px 0;
+            position: relative;
+        }
+
+        .slider__arrow {
+            position: absolute;
+            top: 50px;
+            left: 0;
+            zoom: 2;
+            cursor: pointer;
+        }
+
+        .slider__logo {
+            font-family: 'Fasthand', cursive;
+            font-size: 40px;
+            margin-bottom: -26px;
+        }
+
+        .slider__title {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 20px;
+            font-size: 60px;
+            text-transform: uppercase;
+        }
+
+        .slider__desc {
+            font-family: 'Cormorant', serif;
+            max-width: 700px;
+            font-size: 22px;
+            margin-bottom: 34px;
+        }
+
+        .slider__button {
+            font-family: 'Montserrat', sans-serif;
+            width: fit-content;
+            padding: 12px 30px;
+            background: black;
+            color: white;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 21px;
+            cursor: pointer;
+        }
+
+        .container {
+            max-width: 1240px;
+            margin: auto;
+        }
+
+        [bg="1"] {
+            background-image: url(slider-3.jpg);
+        }
+
+        [bg="2"] {
+            background-image: url(slider-2.jpg);
+        }
+
+        [bg="3"] {
+            background-image: url(slider-1.jpg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider">
+        <div class="slider__outer" bg="1">
+            <div class="container">
+                <div class="slider__inner">
+                    <div class="slider__arrow">
+                        <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd"
+                            clip-rule="evenodd">
+                            <path
+                                d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                        </svg>
+                    </div>
+                    <div class="slider__text">
+                        <div class="slider__logo">Natural Beauty</div>
+                        <div class="slider__title">Original Style</div>
+                        <div class="slider__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dui
+                            nunc, suscipit ac nisi quis, imperdiet rhoncus magna. Donec sit amet sem scelerisque metus
+                            vestibulum ullamcorper.</div>
+                        <div class="slider__button">
+                            Buy our products
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const nextSlider = document.querySelector(".slider__outer");
+        nextSlider.onclick = () => {
+            curBg = parseInt(nextSlider.getAttribute("bg"));
+            curBg == 3 ? nextSlider.setAttribute("bg", 1) : nextSlider.setAttribute("bg", curBg + 1)
+        }
+
+        window.addEventListener('scroll', function (e) {
+            document.querySelector(".slider__outer").setAttribute("style", "background-position-y:" + window.scrollY / 2 + "px");
+        });
+    </script>
+</body>
+
+</html>
